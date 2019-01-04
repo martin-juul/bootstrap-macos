@@ -1,0 +1,7 @@
+goose() {
+    ( cd ~/dev/work/sitetech/project-goose/homestead && vagrant $* )
+}
+
+vadev() {
+    ( cd ~/dev/personal/vagrant/debian && vagrant $* )
+}
