@@ -34,11 +34,15 @@ brew "jq"
 brew "kubernetes-helm"
 brew "lastpass-cli"
 brew "libpq"
+brew "libvirt", restart_service: true
 brew "luarocks"
 brew "macvim"
+brew "make"
+brew "mas"
 brew "ncdu"
 brew "nginx"
 brew "nvm"
+brew "packer"
 brew "perl"
 brew "php", restart_service: true
 brew "pwgen"
@@ -112,3 +116,15 @@ cask "visual-studio-code"
 cask "puppetlabs/puppet/pdk"
 cask "puppetlabs/puppet/puppet-agent"
 cask "puppetlabs/puppet/puppet-bolt"
+mas "Airmail 3", id: 918858936
+mas "BetterSnapTool", id: 417375580
+mas "Bitwarden", id: 1352778147
+mas "Blackmagic Disk Speed Test", id: 425264550
+mas "Install macOS High Sierra", id: 0
+mas "Keynote", id: 409183694
+mas "LastPass", id: 926036361
+mas "MediaInfo", id: 510620098
+mas "Pages", id: 409201541
+mas "RSS Bot", id: 605732865
+mas "The Sims 2", id: 883782620
+mas "Xcode", id: 497799835
