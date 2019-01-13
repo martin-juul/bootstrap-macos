@@ -11,12 +11,17 @@ tap "wagoodman/dive"
 brew "python"
 brew "ansible"
 brew "aria2"
+brew "automake"
+brew "aws-keychain"
 brew "awscli"
 brew "bc"
+brew "blueutil"
 brew "cmake"
 brew "composer"
 brew "coreutils"
 brew "curl"
+brew "docker-credential-helper"
+brew "doxygen"
 brew "e2fsprogs"
 brew "faas-cli"
 brew "findutils"
@@ -33,31 +38,39 @@ brew "htop"
 brew "jq"
 brew "kubernetes-helm"
 brew "lastpass-cli"
+brew "libksba"
 brew "libpq"
-brew "libvirt", restart_service: true
+brew "librsvg"
+brew "libvirt"
 brew "luarocks"
-brew "macvim"
+brew "macvim", link: false
 brew "make"
 brew "mas"
+brew "midnight-commander"
 brew "ncdu"
 brew "nginx"
+brew "nmap"
 brew "nvm"
+brew "openssl@1.1"
 brew "packer"
 brew "perl"
 brew "php", restart_service: true
+brew "pkg-config"
 brew "pwgen"
 brew "python@2"
 brew "qemu"
+brew "qt"
 brew "redis"
 brew "ruby"
 brew "s3cmd"
 brew "screen"
 brew "scw"
+brew "sysbench"
 brew "task"
 brew "telnet"
 brew "terraform"
 brew "tmux"
-brew "vim", link: false
+brew "vim"
 brew "watchman"
 brew "wget"
 brew "zsh"
@@ -95,7 +108,9 @@ cask "iterm2"
 cask "java"
 cask "java8"
 cask "jetbrains-toolbox"
+cask "keka"
 cask "kitematic"
+cask "mamp"
 cask "menubar-colors"
 cask "osxfuse"
 cask "qlimagesize"
@@ -113,6 +128,7 @@ cask "veracrypt"
 cask "virtualbox"
 cask "virtualbox-extension-pack"
 cask "visual-studio-code"
+cask "vlc"
 cask "puppetlabs/puppet/pdk"
 cask "puppetlabs/puppet/puppet-agent"
 cask "puppetlabs/puppet/puppet-bolt"
@@ -120,11 +136,12 @@ mas "Airmail 3", id: 918858936
 mas "BetterSnapTool", id: 417375580
 mas "Bitwarden", id: 1352778147
 mas "Blackmagic Disk Speed Test", id: 425264550
-mas "Install macOS High Sierra", id: 0
 mas "Keynote", id: 409183694
 mas "LastPass", id: 926036361
 mas "MediaInfo", id: 510620098
 mas "Pages", id: 409201541
+mas "Reeder", id: 880001334
 mas "RSS Bot", id: 605732865
+mas "Server", id: 883878097
 mas "The Sims 2", id: 883782620
 mas "Xcode", id: 497799835
