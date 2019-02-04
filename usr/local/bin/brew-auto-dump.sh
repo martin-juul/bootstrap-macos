@@ -1,10 +1,13 @@
 #!/usr/bin/env bash
 
-cd /Users/martin/dev/personal/bootstrap-macos
+WORKDIR=/Volumes/Dev/personal/bootstrap-macos
+
+cd "${WORKDIR}"
 
 brew bundle dump --force
 
-git commit -a -m "[Brewfile]: daily dump `date`"
+git add "${WORKDIR}/Brewfile"
+
+git commit -m "[Brewfile]: dump `date`"
 
 git push origin master
-
