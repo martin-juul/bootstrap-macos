@@ -1,2 +1,0 @@
-zstyle :omz:plugins:ssh-agent agent-forwarding on
-zstyle :omz:plugins:ssh-agent identities id_rsa id_ed25519 id_rsa_work_ed25519
