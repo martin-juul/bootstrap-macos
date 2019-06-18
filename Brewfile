@@ -25,6 +25,7 @@ brew "aws-keychain"
 brew "awscli"
 brew "bc"
 brew "binutils"
+brew "bitwarden-cli"
 brew "blueutil"
 brew "brew-php-switcher"
 brew "pcre"
@@ -40,11 +41,11 @@ brew "docker-compose", link: false
 brew "docker-credential-helper", link: false
 brew "doxygen"
 brew "e2fsprogs"
-brew "faas-cli"
 brew "gmp"
 brew "sdl2"
 brew "ffmpeg"
 brew "findutils"
+brew "frpc", restart_service: true
 brew "fswatch"
 brew "mpfr"
 brew "gawk"
@@ -60,6 +61,7 @@ brew "gnu-sed"
 brew "gnu-tar"
 brew "gptfdisk"
 brew "graphviz"
+brew "hadolint"
 brew "help2man"
 brew "htop"
 brew "httpd"
@@ -77,6 +79,7 @@ brew "libmemcached"
 brew "libpq"
 brew "librsvg"
 brew "libvirt"
+brew "llvm"
 brew "luarocks"
 brew "make"
 brew "mas"
@@ -101,7 +104,7 @@ brew "openssl@1.1"
 brew "packer"
 brew "perl"
 brew "pgcli"
-brew "php", restart_service: true, link: false
+brew "php", restart_service: true
 brew "php@7.1"
 brew "php@7.2"
 brew "phpunit"
@@ -137,7 +140,7 @@ brew "watchman"
 brew "wget"
 brew "zlib"
 brew "zsh"
-brew "exolnet/deprecated/php@5.6", link: true
+brew "exolnet/deprecated/php@5.6"
 brew "heroku/brew/heroku"
 brew "scaleway/scaleway/docker-machine-driver-scaleway", args: ["HEAD"]
 brew "tylerbrock/saw/saw"
@@ -152,6 +155,7 @@ cask "atom"
 cask "authy"
 cask "balenaetcher"
 cask "cakebrew"
+cask "calibre"
 cask "colorpicker-antetype"
 cask "colorpicker-developer"
 cask "colorpicker-skalacolor"
@@ -182,12 +186,13 @@ cask "jetbrains-toolbox"
 cask "keepassxc"
 cask "keka"
 cask "kitematic"
+cask "macdown"
 cask "makemkv"
 cask "mediaconch-app"
 cask "menubar-colors"
+cask "minikube"
 cask "ngrok"
 cask "parallels"
-cask "plex-media-player"
 cask "postman"
 cask "quicklook-csv"
 cask "quicklook-json"
@@ -209,12 +214,14 @@ cask "wineskin-winery"
 cask "xquartz"
 cask "chef/chef/chefdk"
 mas "Airmail", id: 918858936
+mas "Apple Configurator 2", id: 1037126344
 mas "BetterSnapTool", id: 417375580
 mas "Bitwarden", id: 1352778147
 mas "Disk Speed Test", id: 425264550
 mas "Keynote", id: 409183694
 mas "LastPass", id: 926036361
 mas "MediaInfo", id: 510620098
+mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
 mas "RSS Bot", id: 605732865
 mas "Server", id: 883878097
