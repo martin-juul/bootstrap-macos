@@ -63,6 +63,7 @@ brew "gptfdisk"
 brew "graphviz"
 brew "hadolint"
 brew "help2man"
+brew "hercules"
 brew "htop"
 brew "httpd"
 brew "usbmuxd", args: ["HEAD"]
