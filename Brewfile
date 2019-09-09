@@ -117,7 +117,6 @@ brew "namebench"
 brew "ncdu"
 brew "nginx", restart_service: true
 brew "nmap"
-brew "nvm"
 brew "ocaml"
 brew "opam"
 brew "openapi-generator"
