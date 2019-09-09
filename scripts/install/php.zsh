@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 
 COMPOSER_PACKAGES=(
   hirak/prestissimo
@@ -6,4 +6,4 @@ COMPOSER_PACKAGES=(
   laravel/lumen-installer
 )
 
-composer require ${COMPOSER_PACKAGES[@]}
+composer require "${COMPOSER_PACKAGES[@]}"

@@ -8,5 +8,9 @@
         <string>/usr/local/bin/brew-auto-dump.sh</string>
         <key>StartInterval</key>
         <integer>28800</integer>
+        <key>StandardOutPath</key>
+        <string>~/Library/Logs/bootstrap-macos/brew-auto-dump.log</string>
+        <key>StandardErrorPath</key>
+        <string>~/Library/Logs/bootstrap-macos/brew-auto-dump-error.log</string>
     </dict>
 </plist>

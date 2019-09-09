@@ -1,0 +1,45 @@
+#!/usr/bin/env zsh
+
+# Lang
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+
+export HOMEBREW_NO_ANALYTICS=1
+
+# PATH
+export PATH="/usr/local/opt/bison/bin:$PATH"
+export PATH="/usr/local/opt/openssl/bin:$PATH"
+export PATH="/usr/local/opt/libxml2/bin:$PATH"
+export PATH="/usr/local/opt/bzip2/bin:$PATH"
+export PATH="/usr/local/opt/sqlite/bin:$PATH"
+export PATH="/usr/local/sbin:/usr/local/bin:$PATH"
+
+# compile flags
+export ARCHFLAGS="-arch x86_64"
+
+export LDFLAGS="-L/usr/local/opt/bzip2/lib:$LDFLAGS"
+export LDFLAGS="-L/usr/local/opt/openssl/lib:$LDFLAGS"
+export LDFLAGS="-L/usr/local/opt/sqlite/lib:$LDFLAGS"
+export LDFLAGS="-L/usr/local/opt/openldap/lib:$LDFLAGS"
+export LDFLAGS="-L/usr/local/opt/bison/lib:$LDFLAGS"
+export LDFLAGS="-L/usr/local/opt/libxml2/lib:$LDFLAGS"
+
+export CPPFLAGS="-I/usr/local/opt/bzip2/include:$CPPFLAGS"
+export CPPFLAGS="-I/usr/local/opt/openssl/include:$CPPFLAGS"
+export CPPFLAGS="-I/usr/local/opt/sqlite/include:$CPPFLAGS"
+export CPPFLAGS="-I/usr/local/opt/openldap/include:$CPPFLAGS"
+export CPPFLAGS="-I/usr/local/opt/libxml2/include:$CPPFLAGS"
+
+export PKG_CONFIG_PATH="/usr/local/opt/openssl/lib/pkgconfig:$PKG_CONFIG_PATH"
+export PKG_CONFIG_PATH="/usr/local/opt/libxml2/lib/pkgconfig:$PKG_CONFIG_PATH"
+
+# go
+export GOPATH="${HOME}/.go"
+export GOROOT="$(brew --prefix golang)/libexec"
+export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
+
+# phpbrew
+export PHPBREW_ROOT="${HOME}/.phpbrew"
+export PHPBREW_HOME="${PHPBREW_HOME}"
+export PHPBREW_LOOKUP_PREFIX=homebrew
+export PHPBREW_RC_ENABLE=1

@@ -1,0 +1,11 @@
+alias chrome='open -a "Google Chrome"'
+alias safari='open -a "Safari"'
+alias xcode='open -a "Xcode"'
+alias preview='open -a "Preview"'
+
+alias art="php artisan"
+alias devdir="cd /Volumes/Dev"
+alias zshconfig="code ~/.zshrc"
+
+alias nuke_node_modules="find . -name 'node_modules' -type d -prune -exec rm -r '{}' +"
+alias nuke_vendor="find . -name 'vendor' -type d -prune -exec rm -r '{}' +"

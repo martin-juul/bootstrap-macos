@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 
 NPM_PACKAGES=(
   @angular/cli
@@ -7,4 +7,4 @@ NPM_PACKAGES=(
 
 npm i -g yarn
 
-yarn global add ${NPM_PACKAGES[@]}
+yarn global add "${NPM_PACKAGES[@]}"
