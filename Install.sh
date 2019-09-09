@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-SCRIPT_PATH=$(cd -P -- "$(dirname -- "$0")" && printf '%s\n' "$(pwd -P)/$(basename -- "$0")")
+SCRIPT_PATH=$(dirname "$(realpath -s "$0")")
 LOG_DIR="${HOME}/Library/Logs/bootstrap-macos"
 
 go_back() {
@@ -10,7 +10,9 @@ go_back() {
 go_to_dir() {
   local directory_path="${1}"
 
-  [[ -d $directory_path ]] || (echo "Directory at ${directory_path} does not exist" && exit 1)
+  echo "Entering ${directory_path}"
+
+  [[ -d $directory_path ]] && cd "${directory_path}" || echo "Directory at ${directory_path} does not exist" exit 1
 }
 
 
@@ -23,36 +25,41 @@ run_dir_script() {
   local script="${2}"
 
   go_to_dir "${dir}"
-  ./"${script}"
+  zsh -c "./${script}"
 
   go_back
 }
 
 install_launch_agents() {
+  echo "Installing Launch Agents"
+
   run_dir_script "launchd" "install.sh"
 }
 
 setup_zsh() {
-    run_dir_script "scripts" "setup.sh"
+  echo "Setting up zsh"
+
+  run_dir_script "scripts" "zsh-setup.sh"
 }
 
-main() {
-  echo "Creating log directory at ${LOG_DIR}"
-  mkdir -p "${LOG_DIR}"
+echo "Creating log directory at ${LOG_DIR}"
+mkdir -p "${LOG_DIR}"
 
-  which -s brew
-  if [[ $? != 0 ]] ; then
-      echo "Installing homebrew"
-      /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-  fi
+if [ "$(command -v brew)" == '' ] ; then
+    echo "Installing homebrew"
+    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
-  install_scripts
+    bash -c 'brew bundle'
+else
+  echo "Homebrew is already installed. Skipping.."
+fi
 
-  install_launch_agents
+install_scripts
 
-  setup_zsh
+install_launch_agents
 
-  echo "Done"
-}
+setup_zsh
 
-main
+echo "Done"
+
+exit 0
