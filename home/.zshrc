@@ -1,44 +1,108 @@
-#!/usr/bin/env zsh
+# =============================================================================
+#                                Environment
+# =============================================================================
+source "${HOME}/.localrc"
 
-source ${HOME}/.zsh_env
+export CLICOLOR=1
+export BOOTSTRAP_DIR=/Volumes/Dev/personal/bootstrap-macos
 
-FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
-fpath=(/usr/local/share/zsh-completions $fpath)
+# =============================================================================
+#                                functions
+# =============================================================================
 
-export ZSH="${HOME}/.config/oh-my-zsh"
+# Sources file on first invocation
+lazy_source () {
+    eval "$1 () { [ -f $2 ] && source $2 && $1 \$@ }"
+}
 
-export ZSH_CACHE_DIR="${ZSH}/cache"
+# Colorful messages
+e_header()  { echo -e "\n\033[1m$@\033[0m"; }
+e_success() { echo -e " \033[1;32m✔\033[0m  $@"; }
+e_error()   { echo -e " \033[1;31m✖\033[0m  $@"; }
 
-export UPDATE_ZSH_DAYS=30
+ergo_add_proxy() {
+  local host="${1}"
 
-CASE_SENSITIVE="false"
-DISABLE_AUTO_TITLE="false"
-ENABLE_CORRECTION="false"
-COMPLETION_WAITING_DOTS="true"
-DISABLE_UNTRACKED_FILES_DIRTY="true"
+  e_header "Adding host ${host} to .ergo"
+  echo "ergoproxy ${host}" >> .ergo
+}
 
-HIST_STAMPS="dd.mm.yyyy"
+# =============================================================================
+#                                   zgen
+# =============================================================================
+# load zgen
+source "${HOME}/.zgen/zgen.zsh"
 
-ZSH_THEME="robbyrussell"
+# if the init script doesn't exist
+if ! zgen saved; then
+  e_header "Creating a zgen save"
+  zgen oh-my-zsh
 
-plugins=(
-  aws
-  git
-  osx
-)
+  # plugins
+  zgen oh-my-zsh plugins/git
+  zgen oh-my-zsh plugins/sudo
+  zgen oh-my-zsh plugins/rsync
+  zgen oh-my-zsh plugins/osx
+  zgen oh-my-zsh plugins/command-not-found
+  zgen oh-my-zsh plugins/colored-man-pages
+  zgen oh-my-zsh plugins/shrink-path
+	zgen oh-my-zsh plugins/ssh-agent
 
-source ${ZSH}/oh-my-zsh.sh
+	zgen load zsh-users/zsh-autosuggestions
+	zgen load zdharma/fast-syntax-highlighting
+	zgen load zsh-users/zsh-history-substring-search
+  zgen load zsh-users/zsh-completions src
 
-source ${HOME}/.zsh_aliases
+  zgen load supercrabtree/k
+  zgen load junegunn/fzf
+  zgen load StackExchange/blackbox
 
-##########
-# Tooling
-##########
+  # theme
+  zgen load romkatv/powerlevel10k powerlevel10k
 
-# pyenv
+  # generate the init script from plugins above
+  zgen save
+fi
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
+
+# =============================================================================
+#                                zsh
+# =============================================================================
+
+# History
+setopt append_history
+setopt extended_history
+setopt hist_expire_dups_first
+setopt hist_ignore_all_dups
+setopt hist_ignore_dups
+setopt hist_ignore_space
+setopt hist_reduce_blanks
+setopt hist_save_no_dups
+setopt hist_verify
+
+setopt share_history
+
+setopt auto_cd
+
+HISTSIZE=100000
+SAVEHIST=100000
+HISTFILE=~/.zsh_history
+export HISTIGNORE="ls:cd:cd -:pwd:exit:date:* --help"
+
+source "${HOME}/.aliases"
+
+# =============================================================================
+#                                tools
+# =============================================================================
+
 eval "$(pyenv init -)"
+eval "$(pipenv --completion)"
+eval "$(rbenv init -)"
 
-# fnm
-eval "$(fnm env --multi)"
+. /usr/local/opt/asdf/asdf.sh
+. /usr/local/opt/asdf/etc/bash_completion.d/asdf.bash
 
-source "${PHPBREW_ROOT}/bashrc"
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+

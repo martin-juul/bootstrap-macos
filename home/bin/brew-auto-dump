@@ -2,14 +2,13 @@
 
 set -xe
 
-WORKDIR=/Volumes/Dev/personal/bootstrap-macos
 DUMP_DATE=$(date "+%Y-%m-%d %H:%M:%S")
 
-cd "${WORKDIR}" || (echo "${WORKDIR} does not exist" && exit 1)
+cd "${BOOTSTRAP_DIR}" || (echo BOOTSTRAP_DIR "${BOOTSTRAP_DIR} does not exist" && exit 1)
 
 brew bundle dump --force
 
-git add "${WORKDIR}/Brewfile"
+git add "${BOOTSTRAP_DIR}/Brewfile"
 
 git commit -m "[Brewfile]: dump bundle - ${DUMP_DATE}"
 

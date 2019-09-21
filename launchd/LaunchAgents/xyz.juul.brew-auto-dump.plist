@@ -5,7 +5,7 @@
         <key>Label</key>
         <string>xyz.juul.brew-auto-dump</string>
         <key>Program</key>
-        <string>/usr/local/bin/brew-auto-dump.sh</string>
+        <string>/Volumes/Dev/personal/bootstrap-macos/brew-auto-dump</string>
         <key>StartInterval</key>
         <integer>28800</integer>
         <key>StandardOutPath</key>

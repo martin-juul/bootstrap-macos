@@ -3,8 +3,16 @@ alias safari='open -a "Safari"'
 alias xcode='open -a "Xcode"'
 alias preview='open -a "Preview"'
 
-alias art="php artisan"
+alias art="artisan"
+alias art_tinker="artisan tinker"
+alias art_serve="artisan serve"
+
 alias devdir="cd /Volumes/Dev"
+
+alias aliaseeconfig="code ~/dotfiles-local/aliases.local"
+alias envconfig="code ~/.zsh_env"
+
+alias sshconfig="code ~/.ssh/config"
 alias zshconfig="code ~/.zshrc"
 
 alias nuke_node_modules="find . -name 'node_modules' -type d -prune -exec rm -r '{}' +"

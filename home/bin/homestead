@@ -1,0 +1,4 @@
+homestead() {
+    ( cd "${HOMESTEAD_DIR}" && vagrant $* )
+}
+

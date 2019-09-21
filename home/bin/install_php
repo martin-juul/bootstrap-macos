@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+
+PHP_VERSION=${1}
+
+if [[ -z $PHP_VERSION ]]; then
+    echo "You must specify a php version. Eg: install-php 7.3"
+    exit 1
+fi
+
+echo "Installing PHP ${PHP_VERSION}"
+
+phpbrew install --jobs=$(sysctl -n hw.ncpu) "${PHP_VERSION}" \
+    +default \
+    +cli \
+    +fileinfo \
+    +dtrace \
+    +exif \
+    +fpm \
+    +ftp \
+    +icu \
+    +mysql \
+    +openssl \
+    +pcntl \
+    +phar \
+    +pdo \
+    +pgsql \
+    +sqlite \
+    +xml_all \
+    +zts \
+    +iconv="$(brew --prefix libiconv)" \
+    +bz2="$(brew --prefix bzip2)" \
+    +gmp="$(brew --prefix gmp)" \
+    +zlib="$(brew --prefix zlib)"
