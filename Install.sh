@@ -15,9 +15,9 @@ go_to_dir() {
   [[ -d $directory_path ]] && cd "${directory_path}" || echo "Directory at ${directory_path} does not exist" exit 1
 }
 
-
 install_scripts() {
-    cp -R ./usr/local/bin /usr/local/bin
+  cp -R ./scripts/usr/local/bin/* /usr/local/bin
+  cp -R ./home/bin ~/home/
 }
 
 run_dir_script() {
@@ -45,11 +45,11 @@ setup_zsh() {
 echo "Creating log directory at ${LOG_DIR}"
 mkdir -p "${LOG_DIR}"
 
-if [ "$(command -v brew)" == '' ] ; then
-    echo "Installing homebrew"
-    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+if [ "$(command -v brew)" == '' ]; then
+  echo "Installing homebrew"
+  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
-    bash -c 'brew bundle'
+  bash -c 'brew bundle'
 else
   echo "Homebrew is already installed. Skipping.."
 fi
