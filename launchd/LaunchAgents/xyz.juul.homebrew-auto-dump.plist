@@ -3,11 +3,14 @@
 <plist version="1.0">
     <dict>
         <key>Label</key>
-        <string>xyz.juul.brew-auto-dump</string>
+        <string>xyz.juul.homebrew-auto-dump</string>
+
         <key>Program</key>
-        <string>/Volumes/Dev/personal/bootstrap-macos/brew-auto-dump</string>
+        <string>brew-auto-dump</string>
+
         <key>StartInterval</key>
         <integer>28800</integer>
+
         <key>StandardOutPath</key>
         <string>~/Library/Logs/bootstrap-macos/brew-auto-dump.log</string>
         <key>StandardErrorPath</key>
