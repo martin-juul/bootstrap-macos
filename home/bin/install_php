@@ -20,6 +20,7 @@ phpbrew install --jobs=$(sysctl -n hw.ncpu) "${PHP_VERSION}" \
     +icu \
     +mysql \
     +openssl \
+    +opcache \
     +pcntl \
     +phar \
     +pdo \

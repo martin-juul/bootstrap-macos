@@ -1,2 +1,0 @@
-#!/bin/sh
-exec "/Users/martin/Library/Application Support/CrossOver/Bottles/Heroes of Might & Magic III Complete/desktopdata/cxmenu/StartMenu.C^5E3A_ProgramData_Microsoft_Windows_Start^2BMenu/Programs/GOG.com/Heroes+of+Might+and+Magic+3+Complete/Tools/Campaign+Editor.lnk" "$@"
